@@ -4,13 +4,15 @@
 (function(){var l=localStorage.getItem('ft-lang')||'ar';if(l==='en'){document.documentElement.lang='en';document.documentElement.dir='ltr'}})()
 </script>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>معرض الصور - Fitness Time Gym</title>
+<title>التقييمات - Fitness Time Gym</title>
 <link rel="stylesheet" href="css/style.css">
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 <style>
-.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:2000;justify-content:center;align-items:center;padding:20px;cursor:pointer}
-.lightbox.open{display:flex}
-.lightbox img{max-width:90%;max-height:90vh;border-radius:10px;object-fit:contain}
-.lightbox .lb-close{position:absolute;top:20px;left:25px;color:#fff;font-size:2em;cursor:pointer;background:none;border:none;font-family:inherit}
+.avg-rating{text-align:center;padding:30px;background:var(--bg2);border-radius:14px;border:1px solid var(--border);margin-bottom:30px}
+.avg-rating .big-num{font-size:3.5em;font-weight:900;color:var(--gold);line-height:1}
+.avg-rating .stars{font-size:1.6em;margin:8px 0;color:var(--gold)}
+.avg-rating .count{color:var(--text3);font-size:.95em}
 </style>
 </head>
 <body>
@@ -30,8 +32,8 @@
     <li><a href="trainers.html" data-i18n="navTrainers">الكباتن</a></li>
     <li><a href="schedule.html" data-i18n="navSchedule">المواعيد</a></li>
     <li><a href="programs.html" data-i18n="navPrograms">البرامج</a></li>
-    <li><a href="gallery.html" class="active" data-i18n="navGallery">معرض الصور</a></li>
-    <li><a href="reviews.html" data-i18n="navReviews">التقييمات</a></li>
+    <li><a href="gallery.html" data-i18n="navGallery">معرض الصور</a></li>
+    <li><a href="reviews.html" class="active" data-i18n="navReviews">التقييمات</a></li>
     <li><a href="contact.html" data-i18n="navContact">اتصل بنا</a></li>
   </ul>
   <div class="nav-actions">
@@ -43,37 +45,44 @@
 </nav>
 
 <div class="page-header">
-  <h1 data-i18n="galTitle">معرض الصور</h1>
-  <p data-i18n="galSub">صور الجيم والأقسام</p>
+  <h1 data-i18n="revTitle">التقييمات</h1>
+  <p data-i18n="revSub">آراء العملاء الحقيقية</p>
 </div>
 
 <div class="container">
   <section>
-    <div class="tabs" id="galTabs">
-      <button class="tab active" data-tab="gal" onclick="switchTab('gal',0)" data-i18n="galTab1">الجيم</button>
-      <button class="tab" data-tab="gal" onclick="switchTab('gal',1)" data-i18n="galTab2">النادي الصحي</button>
+    <div class="avg-rating reveal" id="avgRating">
+      <div class="big-num" id="avgNum">0.0</div>
+      <div class="stars" id="avgStars">☆☆☆☆☆</div>
+      <div class="count" id="avgCount">0 <span data-i18n="revTotal">تقييم</span></div>
     </div>
+  </section>
 
-    <div class="tab-c active" data-tabc="gal">
-      <div class="gl">
-        <img src="images/gym1.jpg" alt="Gym" loading="lazy" onclick="openLightbox(this.src)">
-        <img src="images/gym2.jpg" alt="Gym" loading="lazy" onclick="openLightbox(this.src)">
-        <img src="images/gym3.jpg" alt="Gym" loading="lazy" onclick="openLightbox(this.src)">
-        <img src="images/gym4.jpg" alt="Gym" loading="lazy" onclick="openLightbox(this.src)">
-        <img src="images/gym5.jpg" alt="Gym" loading="lazy" onclick="openLightbox(this.src)">
-        <img src="images/gym9.jpg" alt="Gym" loading="lazy" onclick="openLightbox(this.src)">
-        <img src="images/gym10.jpg" alt="Gym" loading="lazy" onclick="openLightbox(this.src)">
-        <img src="images/gym11.jpg" alt="Gym" loading="lazy" onclick="openLightbox(this.src)">
-        <video src="images/WhatsApp%20Video%202026-05-23%20at%202.44.28%20PM.mp4" controls preload="metadata" style="width:100%;border-radius:10px;aspect-ratio:4/3;object-fit:cover;background:#000"></video>
-      </div>
+  <section>
+    <div class="sh"><span class="ic">💬</span><h2 data-i18n="testT">تقييمات العملاء</h2><div class="ln"></div></div>
+    <div class="test-grid" id="reviewsGrid">
+      <div class="test-c reveal"><div class="stars">⭐⭐⭐⭐⭐</div><p data-i18n="test1">"أفضل جيم في منوف. أجهزة حديثة ونظافة تامة والكباتن محترفين جداً."</p><div class="author" data-i18n="test1a">— أحمد</div></div>
+      <div class="test-c reveal"><div class="stars">⭐⭐⭐⭐⭐</div><p data-i18n="test2">"النادي الصحي تحفة. الجاكوزي والساونا بعد التمرين حاجة تانية."</p><div class="author" data-i18n="test2a">— مريم</div></div>
+      <div class="test-c reveal"><div class="stars">⭐⭐⭐⭐</div><p data-i18n="test3">"دخلت في تحدي التضخيم مع كابتن خالد والنتيجة كانت مذهلة في 3 شهور."</p><div class="author" data-i18n="test3a">— عمر</div></div>
+      <div class="test-c reveal"><div class="stars">⭐⭐⭐⭐⭐</div><p data-i18n="test4">"جيم نظيف وجميل جدا والمدربين متعاونين. أنصح الكل يجرب."</p><div class="author" data-i18n="test4a">— سارة</div></div>
+      <div class="test-c reveal"><div class="stars">⭐⭐⭐⭐⭐</div><p data-i18n="test5">"قسم السيدات رائع ومدربة أميرة محترفة جدا. النادي الصحي تحفة."</p><div class="author" data-i18n="test5a">— نورة</div></div>
+      <div class="test-c reveal"><div class="stars">⭐⭐⭐⭐</div><p data-i18n="test6">"برامج التخسيس مع كابتن أميرة غيرت حياتي. نزلت 12 كيلو في 3 شهور."</p><div class="author" data-i18n="test6a">— هند</div></div>
     </div>
+  </section>
 
-    <div class="tab-c" data-tabc="gal">
-      <div class="gl">
-        <img src="images/gym2.jpg" alt="Health" loading="lazy" onclick="openLightbox(this.src)">
-        <img src="services-images/gym12.png" alt="Health" loading="lazy" onclick="openLightbox(this.src)">
-        <img src="services-images/gym9.png" alt="Health" loading="lazy" onclick="openLightbox(this.src)">
+  <section>
+    <div class="sh"><span class="ic">✍️</span><h2 data-i18n="addRevT">أضف تقييمك</h2><div class="ln"></div></div>
+    <div class="review-form">
+      <input type="text" id="revName" placeholder="اسمك" data-i18n-placeholder="revNameP">
+      <div class="star-rating">
+        <span class="star" data-val="1">★</span>
+        <span class="star" data-val="2">★</span>
+        <span class="star" data-val="3">★</span>
+        <span class="star" data-val="4">★</span>
+        <span class="star" data-val="5">★</span>
       </div>
+      <textarea id="revText" rows="3" placeholder="اكتب تقييمك" data-i18n-placeholder="revTextP"></textarea>
+      <button class="btn btn-gold" onclick="submitReview()" data-i18n="revBtn">إرسال التقييم</button>
     </div>
   </section>
 </div>
@@ -87,14 +96,13 @@
   <div class="ft-b">&copy; 2026 Fitness Time Gym — <span data-i18n="footerCopy">جميع الحقوق محفوظة</span></div>
 </footer>
 
-<div class="lightbox" id="lightbox" onclick="closeLightbox()"><button class="lb-close">&times;</button><img id="lbImg" src="" alt=""></div>
-
 <a href="https://wa.me/201224262481" class="whatsapp-float" target="_blank"><svg viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
 
 <script src="js/script.js"></script>
 <script>
-function openLightbox(src){document.getElementById('lbImg').src=src;document.getElementById('lightbox').classList.add('open')}
-function closeLightbox(){document.getElementById('lightbox').classList.remove('open')}
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(calcAvgRating, 500);
+});
 </script>
 <div class="chat-btn" onclick="toggleChat()"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.516 3.662 1.41 5.18L2 22l4.82-1.41A9.95 9.95 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18c-1.46 0-2.828-.394-4-1.08l-.29-.17-2.86.84.84-2.86-.17-.29A7.96 7.96 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8zm4-10H8a1 1 0 000 2h8a1 1 0 000-2zm0 3H8a1 1 0 000 2h8a1 1 0 000-2zm0 3H8a1 1 0 000 2h8a1 1 0 000-2z"/></svg></div>
 <div class="chat-window" id="chatWindow">
@@ -111,9 +119,3 @@ function closeLightbox(){document.getElementById('lightbox').classList.remove('o
 </div>
 </body>
 </html>
-
-
-
-
-
-

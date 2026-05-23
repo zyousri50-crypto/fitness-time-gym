@@ -20,7 +20,8 @@ try {
 const langData = {
   ar: {
     // Nav
-    navHome:'الرئيسية',navAbout:'عن الجيم',navServices:'الخدمات',navPricing:'الأسعار',navTrainers:'الكباتن',navSchedule:'المواعيد',navPrograms:'البرامج',navGallery:'معرض الصور',navContact:'اتصل بنا',navLang:'English',navCta:'احجز جلسة',
+    navHome:'الرئيسية',navAbout:'عن الجيم',navServices:'الخدمات',navPricing:'الأسعار',navTrainers:'الكباتن',navSchedule:'المواعيد',navPrograms:'البرامج',navGallery:'معرض الصور',navReviews:'التقييمات',navContact:'اتصل بنا',navLang:'English',navCta:'احجز جلسة',
+    revTitle:'التقييمات',revSub:'آراء العملاء الحقيقية',revAvg:'متوسط التقييم',revTotal:'تقييم',revNo:'لا توجد تقييمات بعد',
     // Footer
     footerAbout:'عن الجيم',footerAboutT:'Fitness Time Gym صالتك الرياضية الأولى في منوف منذ 2018.',footerFB:'تابعنا على فيسبوك',footerLinks:'روابط سريعة',footerContact:'اتصل بنا',footerContactT:'تواصل معنا عبر:',footerAddr:'منوف - شارع الجيش - مول ستي استارز',footerHours:'8 م - 2 ص',footerCopy:'جميع الحقوق محفوظة',
     // Top bar
@@ -97,7 +98,8 @@ const langData = {
     chatReset:'🔄 اسأل سؤال آخر',
   },
   en: {
-    navHome:'Home',navAbout:'About',navServices:'Services',navPricing:'Pricing',navTrainers:'Coaches',navSchedule:'Schedule',navPrograms:'Programs',navGallery:'Gallery',navContact:'Contact',navLang:'عربي',navCta:'Book Now',
+    navHome:'Home',navAbout:'About',navServices:'Services',navPricing:'Pricing',navTrainers:'Coaches',navSchedule:'Schedule',navPrograms:'Programs',navGallery:'Gallery',navReviews:'Reviews',navContact:'Contact',navLang:'عربي',navCta:'Book Now',
+    revTitle:'Reviews',revSub:'Real client feedback',revAvg:'Average Rating',revTotal:'Review',revNo:'No reviews yet',
     footerAbout:'About',footerAboutT:'Fitness Time Gym is your #1 fitness destination in Menouf since 2018.',footerFB:'Follow us on Facebook',footerLinks:'Quick Links',footerContact:'Contact',footerContactT:'Get in touch:',footerAddr:'Menouf - Al-Geish St. - City Stars Mall',footerHours:'8 PM - 2 AM',footerCopy:'All rights reserved',
     topAddr:'Menouf - City Stars Mall',topHours:'8 PM - 2 AM',
     heroSub:'Menouf',heroTag:'Your strength starts here 💪',st1:'Opened',st2:'Clients',st3:'Pro Coaches',st4:'Modern Machines',heroCta1:'Book Now',heroCta2:'Learn More',
@@ -262,6 +264,28 @@ function submitReview() {
     });
 }
 
+function calcAvgRating() {
+  const grid = document.getElementById('reviewsGrid');
+  const avgNum = document.getElementById('avgNum');
+  const avgStars = document.getElementById('avgStars');
+  const avgCount = document.getElementById('avgCount');
+  if (!grid || !avgNum) return;
+  const stars = grid.querySelectorAll('.test-c .stars');
+  let total = 0, count = 0;
+  stars.forEach(el => {
+    const s = el.textContent.trim();
+    const n = (s.match(/★/g) || []).length;
+    if (n > 0) { total += n; count++; }
+  });
+  if (count === 0) return;
+  const avg = (total / count).toFixed(1);
+  avgNum.textContent = avg;
+  const full = Math.round(parseFloat(avg));
+  avgStars.textContent = '★'.repeat(full) + '☆'.repeat(5 - full);
+  const d = langData[currentLang];
+  avgCount.innerHTML = count + ' <span data-i18n="revTotal">' + (d.revTotal || 'تقييم') + '</span>';
+}
+
 function displayReviews() {
   const grid = document.querySelector('.test-grid');
   if (!grid || !db) return;
@@ -277,6 +301,7 @@ function displayReviews() {
       div.innerHTML = '<div class="stars">' + r.rating + '</div><p>"' + r.text + '"</p><div class="author">— ' + r.name + '</div><div class="date" style="font-size:.75em;color:var(--text4)">' + (currentLang === 'ar' ? 'أضيف في ' : 'Added on ') + dateStr + '</div>';
       grid.appendChild(div);
     });
+    calcAvgRating();
   });
 }
 
