@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head><script>
+(function(){var l=localStorage.getItem('ft-lang')||'ar';if(l==='en'){document.documentElement.lang='en';document.documentElement.dir='ltr'}})()
+</script>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>البرامج - Fitness Time Gym</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.prog-card{background:var(--bg2);border-radius:14px;overflow:hidden;border:1px solid var(--border);transition:.4s;display:flex;flex-direction:column}
+.prog-card:hover{border-color:var(--gold);transform:translateY(-5px);box-shadow:0 12px 35px rgba(212,175,55,.1)}
+.prog-card img{width:100%;height:200px;object-fit:cover}
+.prog-b{padding:20px;flex:1;display:flex;flex-direction:column}
+.prog-b h3{color:var(--gold);font-size:1.1em;margin-bottom:6px}
+.prog-b p{color:var(--text3);font-size:.88em;flex:1}
+.prog-b .prog-meta{display:flex;gap:14px;margin:12px 0;flex-wrap:wrap}
+.prog-b .prog-meta span{font-size:.78em;color:var(--text2);background:var(--bg4);padding:4px 12px;border-radius:20px}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-l">
+    <span>📞 01224262481</span><span>📞 01032415327</span>
+    <span>📍 منوف - مول ستي استارز</span><span>🕐 8 م - 3 ص</span>
+  </div>
+</div>
+<nav>
+  <a href="index.html" class="nav-logo">FITNESS TIME</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" data-i18n="navHome">الرئيسية</a></li>
+    <li><a href="about.html" data-i18n="navAbout">عن الجيم</a></li>
+    <li><a href="services.html" data-i18n="navServices">الخدمات</a></li>
+    <li><a href="pricing.html" data-i18n="navPricing">الأسعار</a></li>
+    <li><a href="trainers.html" data-i18n="navTrainers">الكباتن</a></li>
+    <li><a href="schedule.html" data-i18n="navSchedule">المواعيد</a></li>
+    <li><a href="programs.html" class="active" data-i18n="navPrograms">البرامج</a></li>
+    <li><a href="gallery.html" data-i18n="navGallery">معرض الصور</a></li>
+    <li><a href="contact.html" data-i18n="navContact">اتصل بنا</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button id="langBtn" onclick="toggleLang()" data-i18n="navLang">English</button>
+    <button id="themeBtn" onclick="toggleTheme()">🌙</button>
+    <a href="https://wa.me/201224262481" target="_blank" class="btn btn-gold btn-sm" data-i18n="navCta">احجز جلسة</a>
+    <button class="nav-toggle" onclick="toggleMenu()">☰</button>
+  </div>
+</nav>
+
+<div class="page-header">
+  <h1 data-i18n="progTitle">البرامج التدريبية</h1>
+  <p data-i18n="progSub">برامج مخصصة حسب هدفك</p>
+</div>
+
+<div class="container">
+  <section>
+    <div class="tabs" id="progTabs">
+      <button class="tab active" data-tab="prog" onclick="switchTab('prog',0)" data-i18n="progTab1">تضخيم</button>
+      <button class="tab" data-tab="prog" onclick="switchTab('prog',1)" data-i18n="progTab2">تنشيف</button>
+      <button class="tab" data-tab="prog" onclick="switchTab('prog',2)" data-i18n="progTab3">تخسيس</button>
+      <button class="tab" data-tab="prog" onclick="switchTab('prog',3)" data-i18n="progTab4">لياقة</button>
+      <button class="tab" data-tab="prog" onclick="switchTab('prog',4)" data-i18n="progTab5">سيدات</button>
+    </div>
+
+    <div class="tab-c active" data-tabc="prog">
+      <div class="g3">
+        <div class="prog-card reveal"><img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=600&q=80" alt="Bulking"><div class="prog-b"><h3 data-i18n="prog1t">برنامج التضخيم</h3><p data-i18n="prog1d">برنامج مكثف لزيادة الكتلة العضلية باستخدام الأوزان الحرة والأجهزة. مناسب للمبتدئين والمحترفين.</p><div class="prog-meta"><span data-i18n="prog1m1">3 - 6 شهور</span><span data-i18n="prog1m2">مستوى: جميع</span><span data-i18n="prog1m3">كابتن خالد</span></div><a href="https://wa.me/201224262481" target="_blank" class="btn btn-gold btn-sm" data-i18n="progCta">احجز الآن</a></div></div>
+        <div class="prog-card reveal"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80" alt="Strength"><div class="prog-b"><h3 data-i18n="prog2t">برنامج القوة</h3><p data-i18n="prog2d">زيادة القوة البدنية والقدرة على التحمل من خلال تمارين مركبة وأوزان ثقيلة.</p><div class="prog-meta"><span data-i18n="prog2m1">شهرين</span><span data-i18n="prog2m2">متوسط</span><span data-i18n="prog2m3">كابتن خالد</span></div><a href="https://wa.me/201224262481" target="_blank" class="btn btn-gold btn-sm" data-i18n="progCta">احجز الآن</a></div></div>
+      </div>
+    </div>
+
+    <div class="tab-c" data-tabc="prog">
+      <div class="g3">
+        <div class="prog-card reveal"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80" alt="Cutting"><div class="prog-b"><h3 data-i18n="prog3t">برنامج التنشيف</h3><p data-i18n="prog3d">حرق الدهون مع الحفاظ على الكتلة العضلية. كارديو + حديد + نظام غذائي.</p><div class="prog-meta"><span data-i18n="prog3m1">2 - 4 شهور</span><span data-i18n="prog3m2">جميع المستويات</span><span data-i18n="prog3m3">جميع الكباتن</span></div><a href="https://wa.me/201224262481" target="_blank" class="btn btn-gold btn-sm" data-i18n="progCta">احجز الآن</a></div></div>
+      </div>
+    </div>
+
+    <div class="tab-c" data-tabc="prog">
+      <div class="g3">
+        <div class="prog-card reveal"><img src="https://images.unsplash.com/photo-1538805060514-97d9cc17730c?w=600&q=80" alt="Weight Loss"><div class="prog-b"><h3 data-i18n="prog4t">برنامج التخسيس</h3><p data-i18n="prog4d">برنامج متكامل لإنقاص الوزن يشمل كارديو مكثف وتمارين حرق دهون مع متابعة تغذية.</p><div class="prog-meta"><span data-i18n="prog4m1">شهرين+</span><span data-i18n="prog4m2">مبتدئين</span><span data-i18n="prog4m3">كابتن أميرة</span></div><a href="https://wa.me/201224262481" target="_blank" class="btn btn-gold btn-sm" data-i18n="progCta">احجز الآن</a></div></div>
+      </div>
+    </div>
+
+    <div class="tab-c" data-tabc="prog">
+      <div class="g3">
+        <div class="prog-card reveal"><img src="https://images.unsplash.com/photo-1594737626072-90dcf0b3269f?w=600&q=80" alt="Fitness"><div class="prog-b"><h3 data-i18n="prog5t">برنامج اللياقة</h3><p data-i18n="prog5d">تحسين اللياقة البدنية العامة والمرونة من خلال تمارين متنوعة ومناسبة للجميع.</p><div class="prog-meta"><span data-i18n="prog5m1">شهري</span><span data-i18n="prog5m2">جميع المستويات</span><span data-i18n="prog5m3">جميع الكباتن</span></div><a href="https://wa.me/201224262481" target="_blank" class="btn btn-gold btn-sm" data-i18n="progCta">احجز الآن</a></div></div>
+      </div>
+    </div>
+
+    <div class="tab-c" data-tabc="prog">
+      <div class="g3">
+        <div class="prog-card reveal"><img src="https://images.unsplash.com/photo-1547153760-18fc8636b1fe?w=600&q=80" alt="Women"><div class="prog-b"><h3 data-i18n="prog6t">برنامج السيدات</h3><p data-i18n="prog6d">برامج مخصصة للسيدات: رقص شرقي - زومبا - أيروبكس - تنحيف وتنسيق قوام.</p><div class="prog-meta"><span data-i18n="prog6m1">شهري</span><span data-i18n="prog6m2">للسيدات فقط</span><span data-i18n="prog6m3">كابتن أميرة وشهد</span></div><a href="https://wa.me/201224262481" target="_blank" class="btn btn-gold btn-sm" data-i18n="progCta">احجز الآن</a></div></div>
+        <div class="prog-card reveal"><img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&q=80" alt="Zumba"><div class="prog-b"><h3 data-i18n="prog7t">زومبا وأيروبكس</h3><p data-i18n="prog7d">تمارين إيقاعية لحرق السعرات وتحسين اللياقة في جو من المرح والطاقة.</p><div class="prog-meta"><span data-i18n="prog7m1">شهري</span><span data-i18n="prog7m2">للسيدات</span><span data-i18n="prog7m3">كابتن شهد</span></div><a href="https://wa.me/201224262481" target="_blank" class="btn btn-gold btn-sm" data-i18n="progCta">احجز الآن</a></div></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="ft">
+    <div><h3 data-i18n="footerAbout">عن الجيم</h3><p data-i18n="footerAboutT">Fitness Time Gym صالتك الرياضية الأولى في منوف منذ 2018.</p><p><a href="https://www.facebook.com/FitnessTIMEGYM12/" target="_blank" data-i18n="footerFB">Follow us on Facebook</a></p></div>
+    <div><h3 data-i18n="footerLinks">روابط سريعة</h3><ul><li><a href="about.html" data-i18n="navAbout">عن الجيم</a></li><li><a href="pricing.html" data-i18n="navPricing">الأسعار</a></li><li><a href="trainers.html" data-i18n="navTrainers">الكباتن</a></li><li><a href="contact.html" data-i18n="navContact">اتصل بنا</a></li></ul></div>
+    <div><h3 data-i18n="footerContact">اتصل بنا</h3><p data-i18n="footerContactT">تواصل معنا عبر:</p><p>📞 01224262481</p><p>📞 01032415327</p><p>📍 <span data-i18n="footerAddr">منوف - شارع الجيش - مول ستي استارز</span></p><p>🕐 <span data-i18n="footerHours">8 م - 3 ص</span></p></div>
+  </div>
+  <div class="ft-b">&copy; 2026 Fitness Time Gym — <span data-i18n="footerCopy">جميع الحقوق محفوظة</span></div>
+</footer>
+
+<a href="https://wa.me/201224262481" class="whatsapp-float" target="_blank"><svg viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+
+<script src="js/script.js"></script>
+</body>
+</html>
+
+
+
+
+
+

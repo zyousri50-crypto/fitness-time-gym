@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head><script>
+(function(){var l=localStorage.getItem('ft-lang')||'ar';if(l==='en'){document.documentElement.lang='en';document.documentElement.dir='ltr'}})()
+</script>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>الأسعار - Fitness Time Gym</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.compare-wrap{overflow-x:auto}
+.comp-table{min-width:600px}
+.comp-table td,.comp-table th{padding:14px 18px}
+.comp-table .yes{color:#2ecc71;font-weight:700}
+.comp-table .no{color:var(--text4)}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-l">
+    <span>📞 01224262481</span><span>📞 01032415327</span>
+    <span>📍 منوف - مول ستي استارز</span><span>🕐 8 م - 3 ص</span>
+  </div>
+</div>
+<nav>
+  <a href="index.html" class="nav-logo">FITNESS TIME</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" data-i18n="navHome">الرئيسية</a></li>
+    <li><a href="about.html" data-i18n="navAbout">عن الجيم</a></li>
+    <li><a href="services.html" data-i18n="navServices">الخدمات</a></li>
+    <li><a href="pricing.html" class="active" data-i18n="navPricing">الأسعار</a></li>
+    <li><a href="trainers.html" data-i18n="navTrainers">الكباتن</a></li>
+    <li><a href="schedule.html" data-i18n="navSchedule">المواعيد</a></li>
+    <li><a href="programs.html" data-i18n="navPrograms">البرامج</a></li>
+    <li><a href="gallery.html" data-i18n="navGallery">معرض الصور</a></li>
+    <li><a href="contact.html" data-i18n="navContact">اتصل بنا</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button id="langBtn" onclick="toggleLang()" data-i18n="navLang">English</button>
+    <button id="themeBtn" onclick="toggleTheme()">🌙</button>
+    <a href="https://wa.me/201224262481" target="_blank" class="btn btn-gold btn-sm" data-i18n="navCta">احجز جلسة</a>
+    <button class="nav-toggle" onclick="toggleMenu()">☰</button>
+  </div>
+</nav>
+
+<div class="page-header">
+  <h1 data-i18n="prTitle">الأسعار</h1>
+  <p data-i18n="prSub">خطط تناسب الجميع</p>
+</div>
+
+<div class="container">
+  <section>
+    <div class="tabs" id="prTabs">
+      <button class="tab active" data-tab="pr" onclick="switchTab('pr',0)" data-i18n="prTab1">جلسات</button>
+      <button class="tab" data-tab="pr" onclick="switchTab('pr',1)" data-i18n="prTab2">اشتراك شهري</button>
+      <button class="tab" data-tab="pr" onclick="switchTab('pr',2)" data-i18n="prTab3">أكثر من شهر</button>
+    </div>
+
+    <div class="tab-c active" data-tabc="pr">
+      <div class="pg">
+        <div class="pc reveal"><div class="pt" data-i18n="p1t">جلسة</div><div class="pn" data-i18n="p1n">حديد</div><div class="pp">35 <span data-i18n="egp">ج.م</span></div></div>
+        <div class="pc reveal"><div class="pt" data-i18n="p2t">جلسة</div><div class="pn" data-i18n="p2n">حديد + كارديو</div><div class="pp">50 <span data-i18n="egp">ج.م</span></div></div>
+        <div class="pc featured reveal"><div class="pt" data-i18n="p3t">جلسة</div><div class="pn" data-i18n="p3n">النادي الصحي (سبا)</div><div class="pp">250 <span data-i18n="egp">ج.م</span></div></div>
+      </div>
+    </div>
+
+    <div class="tab-c" data-tabc="pr">
+      <div class="pg">
+        <div class="pc reveal"><div class="pt" data-i18n="p4t">شهري</div><div class="pn" data-i18n="p4n">شامل بدون سبا</div><div class="pp">300 <span data-i18n="egp">ج.م</span></div><div class="pd" data-i18n="p4d">حديد + كارديو + أيروبكس</div></div>
+        <div class="pc featured reveal"><div class="pt" data-i18n="p5t">شهري</div><div class="pn" data-i18n="p5n">شامل بالسبا</div><div class="pp">450 <span data-i18n="egp">ج.م</span></div><div class="pd" data-i18n="p5d">حديد + كارديو + سبا + رقص</div></div>
+      </div>
+    </div>
+
+    <div class="tab-c" data-tabc="pr">
+      <div class="pg">
+        <div class="pc reveal"><div class="pt" data-i18n="p6t">شهرين</div><div class="pn" data-i18n="p6n">بدون سبا</div><div class="pp">550 <span data-i18n="egp">ج.م</span></div></div>
+        <div class="pc reveal"><div class="pt" data-i18n="p7t">شهرين</div><div class="pn" data-i18n="p7n">شامل بالسبا</div><div class="pp">750 <span data-i18n="egp">ج.م</span></div></div>
+        <div class="pc reveal"><div class="pt" data-i18n="p8t">3 شهور</div><div class="pn" data-i18n="p8n">بدون سبا</div><div class="pp">800 <span data-i18n="egp">ج.م</span></div></div>
+        <div class="pc reveal"><div class="pt" data-i18n="p9t">3 شهور</div><div class="pn" data-i18n="p9n">شامل بالسبا</div><div class="pp">1100 <span data-i18n="egp">ج.م</span></div></div>
+        <div class="pc reveal"><div class="pt" data-i18n="p10t">4 شهور</div><div class="pn" data-i18n="p10n">اشتراك 4 شهور</div><div class="pp">1100 <span data-i18n="egp">ج.م</span></div></div>
+        <div class="pc reveal"><div class="pt" data-i18n="p11t">6 شهور</div><div class="pn" data-i18n="p11n">اشتراك 6 شهور</div><div class="pp">1800 <span data-i18n="egp">ج.م</span></div></div>
+        <div class="pc featured reveal"><div class="pt" data-i18n="p12t">سنوي</div><div class="pn" data-i18n="p12n">اشتراك سنوي</div><div class="pp">2000 <span data-i18n="egp">ج.م</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sh"><span class="ic">📊</span><h2 data-i18n="cmpT">مقارنة الباقات</h2><div class="ln"></div></div>
+    <div class="compare-wrap">
+      <table class="comp-table">
+        <thead><tr><th data-i18n="cmpF">الميزة</th><th data-i18n="cmpB">بدون سبا</th><th data-i18n="cmpS">بالسبا</th></tr></thead>
+        <tbody>
+          <tr><td data-i18n="cmp1">الحديد</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+          <tr><td data-i18n="cmp2">الكارديو</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+          <tr><td data-i18n="cmp3">أيروبكس</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+          <tr><td data-i18n="cmp4">رقص / زومبا</td><td class="no">✗</td><td class="yes">✓</td></tr>
+          <tr><td data-i18n="cmp5">جاكوزي</td><td class="no">✗</td><td class="yes">✓</td></tr>
+          <tr><td data-i18n="cmp6">ساونا</td><td class="no">✗</td><td class="yes">✓</td></tr>
+          <tr><td data-i18n="cmp7">بخار</td><td class="no">✗</td><td class="yes">✓</td></tr>
+          <tr><td data-i18n="cmp8">مساج</td><td class="no">✗</td><td class="yes">✓</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="ft">
+    <div><h3 data-i18n="footerAbout">عن الجيم</h3><p data-i18n="footerAboutT">Fitness Time Gym صالتك الرياضية الأولى في منوف منذ 2018.</p><p><a href="https://www.facebook.com/FitnessTIMEGYM12/" target="_blank" data-i18n="footerFB">Follow us on Facebook</a></p></div>
+    <div><h3 data-i18n="footerLinks">روابط سريعة</h3><ul><li><a href="about.html" data-i18n="navAbout">عن الجيم</a></li><li><a href="pricing.html" data-i18n="navPricing">الأسعار</a></li><li><a href="trainers.html" data-i18n="navTrainers">الكباتن</a></li><li><a href="contact.html" data-i18n="navContact">اتصل بنا</a></li></ul></div>
+    <div><h3 data-i18n="footerContact">اتصل بنا</h3><p data-i18n="footerContactT">تواصل معنا عبر:</p><p>📞 01224262481</p><p>📞 01032415327</p><p>📍 <span data-i18n="footerAddr">منوف - شارع الجيش - مول ستي استارز</span></p><p>🕐 <span data-i18n="footerHours">8 م - 3 ص</span></p></div>
+  </div>
+  <div class="ft-b">&copy; 2026 Fitness Time Gym — <span data-i18n="footerCopy">جميع الحقوق محفوظة</span></div>
+</footer>
+
+<a href="https://wa.me/201224262481" class="whatsapp-float" target="_blank"><svg viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+
+<script src="js/script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
