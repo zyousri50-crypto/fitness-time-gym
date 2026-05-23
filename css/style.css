@@ -62,13 +62,13 @@ section{padding:70px 0}
 .g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
 
 /* ===== CARDS ===== */
-.card{background:var(--bg2);border-radius:12px;overflow:hidden;border:1px solid var(--border);transition:.4s}
-.card:hover{border-color:var(--gold);transform:translateY(-6px);box-shadow:0 12px 40px rgba(212,175,55,.1)}
-.card img{width:100%;height:200px;object-fit:cover;display:block;transition:.5s;aspect-ratio:16/9}
-.card:hover img{transform:scale(1.05)}
-.card-b{padding:18px}
-.card-b h3{color:var(--gold);font-size:1.05em;margin-bottom:4px}
-.card-b p{color:var(--text3);font-size:.88em}
+.card,.prog-card{background:var(--bg2);border-radius:12px;overflow:hidden;border:1px solid var(--border);transition:.4s}
+.card:hover,.prog-card:hover{border-color:var(--gold);transform:translateY(-6px);box-shadow:0 12px 40px rgba(212,175,55,.1)}
+.card img,.prog-card img{width:100%;height:200px;object-fit:cover;display:block;transition:.5s;aspect-ratio:16/9}
+.card:hover img,.prog-card:hover img{transform:scale(1.05)}
+.card-b,.prog-b{padding:18px}
+.card-b h3,.prog-b h3{color:var(--gold);font-size:1.05em;margin-bottom:4px}
+.card-b p,.prog-b p{color:var(--text3);font-size:.88em}
 .card-b .tag{display:inline-block;background:var(--gold);color:#000;font-size:.65em;font-weight:800;padding:2px 12px;border-radius:20px;margin-top:6px}
 
 /* ===== HERO ===== */
