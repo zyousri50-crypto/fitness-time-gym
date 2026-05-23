@@ -1,6 +1,22 @@
 let currentLang = localStorage.getItem('ft-lang') || 'ar';
 let currentTheme = localStorage.getItem('ft-theme') || 'dark';
 
+// Firebase
+const firebaseConfig = {
+  apiKey: "AIzaSyBzH3-ZhXverJStvg_xiGeViofBmJp9WnE",
+  authDomain: "fitness-time-gym-158dd.firebaseapp.com",
+  projectId: "fitness-time-gym-158dd",
+  storageBucket: "fitness-time-gym-158dd.firebasestorage.app",
+  messagingSenderId: "878846128512",
+  appId: "1:878846128512:web:eaacf82cc45a8e34d59165",
+  measurementId: "G-YGL0ZYS8H5"
+};
+let db;
+try {
+  firebase.initializeApp(firebaseConfig);
+  db = firebase.firestore();
+} catch(e) {}
+
 const langData = {
   ar: {
     // Nav
@@ -209,27 +225,36 @@ function submitReview() {
   if (!name || !text || !activeStars?.length) { alert(msg); return; }
   const rating = activeStars.length;
   const starsStr = '★'.repeat(rating) + '☆'.repeat(5 - rating);
-  const reviews = JSON.parse(localStorage.getItem('ft-reviews') || '[]');
-  reviews.unshift({ name, text, rating: starsStr, date: new Date().toLocaleDateString('en-CA') });
-  localStorage.setItem('ft-reviews', JSON.stringify(reviews));
-  document.getElementById('revName').value = '';
-  document.getElementById('revText').value = '';
-  document.querySelectorAll('.star-rating .star').forEach(s => s.classList.remove('active'));
-  displayReviews();
+  const btn = document.querySelector('.review-form .btn');
+  btn.disabled = true; btn.textContent = currentLang === 'ar' ? 'جاري الإرسال...' : 'Sending...';
+  db.collection('reviews').add({ name, text, rating: starsStr, createdAt: firebase.firestore.FieldValue.serverTimestamp() })
+    .then(() => {
+      document.getElementById('revName').value = '';
+      document.getElementById('revText').value = '';
+      document.querySelectorAll('.star-rating .star').forEach(s => s.classList.remove('active'));
+      btn.disabled = false; btn.textContent = d.revBtn || 'إرسال التقييم';
+    })
+    .catch(err => {
+      alert('Error: ' + err.message);
+      btn.disabled = false; btn.textContent = d.revBtn || 'إرسال التقييم';
+    });
 }
 
 function displayReviews() {
   const grid = document.querySelector('.test-grid');
-  if (!grid) return;
-  const reviews = JSON.parse(localStorage.getItem('ft-reviews') || '[]');
+  if (!grid || !db) return;
   grid.querySelectorAll('.user-review').forEach(el => el.remove());
-  if (!reviews.length) return;
-  const d = langData[currentLang];
-  reviews.forEach(r => {
-    const div = document.createElement('div');
-    div.className = 'test-c user-review';
-    div.innerHTML = '<div class="stars">' + r.rating + '</div><p>"' + r.text + '"</p><div class="author">— ' + r.name + '</div><div class="date" style="font-size:.75em;color:var(--text4)">' + (currentLang === 'ar' ? 'أضيف في ' : 'Added on ') + r.date + '</div>';
-    grid.appendChild(div);
+  db.collection('reviews').orderBy('createdAt', 'desc').onSnapshot(snap => {
+    grid.querySelectorAll('.user-review').forEach(el => el.remove());
+    const d = langData[currentLang];
+    snap.forEach(doc => {
+      const r = doc.data();
+      const dateStr = r.createdAt ? r.createdAt.toDate().toLocaleDateString('en-CA') : '';
+      const div = document.createElement('div');
+      div.className = 'test-c user-review';
+      div.innerHTML = '<div class="stars">' + r.rating + '</div><p>"' + r.text + '"</p><div class="author">— ' + r.name + '</div><div class="date" style="font-size:.75em;color:var(--text4)">' + (currentLang === 'ar' ? 'أضيف في ' : 'Added on ') + dateStr + '</div>';
+      grid.appendChild(div);
+    });
   });
 }
 
