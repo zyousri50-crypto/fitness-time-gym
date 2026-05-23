@@ -84,6 +84,16 @@ const langData = {
     conPhone:'الهاتف',conAddr:'العنوان',conAddrD:'منوف - شارع الجيش\nمول ستي استارز - الدور الرابع',conHours:'مواعيد العمل',conHoursD:'يومياً 8 م - 3 ص\nالجمعة 2 م - 3 ص',conWhatsapp:'واتساب',
     conFormName:'الاسم',conFormPhone:'رقم الهاتف',conFormSubject:'الموضوع',conFormMsg:'الرسالة',conFormBtn:'إرسال الرسالة',
     conOpt1:'استفسار عن الأسعار',conOpt2:'حجز جلسة',conOpt3:'استفسار عن الاشتراكات',conOpt4:'شكوى أو اقتراح',
+    // Chatbot
+    chatTitle:'💬 Fitness Time',chatWelcome:'مرحباً! أنا مساعد Fitness Time. اختر من الأسئلة أدناه:',
+    q1:'💰 الأسعار',q2:'🕐 المواعيد',q3:'📍 العنوان',q4:'📞 التواصل',q5:'🏋️ البرامج',q6:'🔧 الخدمات',
+    a1:'الأسعار:\n• جلسة حديد: 35 ج.م\n• جلسة حديد+كارديو: 50 ج.م\n• جلسة سبا: 250 ج.م\n• شهري بدون سبا: 300 ج.م\n• شهري بالسبا: 450 ج.م\n• شهرين بدون سبا: 550 ج.م\n• شهرين بالسبا: 750 ج.م\n• 3 شهور بدون سبا: 800 ج.م\n• 3 شهور بالسبا: 1100 ج.م\n• 4 شهور: 1100 ج.م\n• 6 شهور: 1800 ج.م\n• سنوي: 2000 ج.م',
+    a2:'المواعيد:\n👩 البنات:\n• سبت/اثنين/أربع: 3:30 م - 8:00 م\n• أحد/ثلاثاء/خميس: 9:00 م - 11:30 م\n• الجمعة إجازة\n\n💪 الشباب:\n• يومياً: 8:00 م - 3:00 ص\n• الجمعة: 2:00 م - 3:00 ص',
+    a3:'📍 العنوان:\nمنوف - شارع الجيش\nمول ستي استارز - الدور الرابع',
+    a4:'📞 التواصل:\n• 01224262481\n• 01032415327\n• واتساب: 01224262481',
+    a5:'🏋️ البرامج:\n• تضخيم (3-6 شهور)\n• تنشيف (2-4 شهور)\n• تخسيس (شهرين+)\n• لياقة (شهري)\n• سيدات (شهري)\n• زومبا وأيروبكس (شهري)\n\nكلمنا عالواتساب عشان تفاصيل أكثر.',
+    a6:'🔧 الخدمات:\n• النادي الصحي (جاكوزي-ساونا-بخار-مساج)\n• الحديد والأوزان الحرة\n• الكارديو (مشاية-عجلة-أجهزة)\n• الرقص واللياقة (شرقي-زومبا-أيروبكس)\n• التدريب الشخصي والجماعي\n• استشارات تغذية',
+    chatReset:'🔄 اسأل سؤال آخر',
   },
   en: {
     navHome:'Home',navAbout:'About',navServices:'Services',navPricing:'Pricing',navTrainers:'Coaches',navSchedule:'Schedule',navPrograms:'Programs',navGallery:'Gallery',navContact:'Contact',navLang:'عربي',navCta:'Book Now',
@@ -139,6 +149,16 @@ const langData = {
     conPhone:'Phone',conAddr:'Address',conAddrD:'Menouf - Al-Geish St.\nCity Stars Mall - 4th Floor',conHours:'Working Hours',conHoursD:'Daily 8 PM - 3 AM\nFriday 2 PM - 3 AM',conWhatsapp:'WhatsApp',
     conFormName:'Name',conFormPhone:'Phone',conFormSubject:'Subject',conFormMsg:'Message',conFormBtn:'Send Message',
     conOpt1:'Pricing inquiry',conOpt2:'Book a session',conOpt3:'Membership inquiry',conOpt4:'Complaint or suggestion',
+    // Chatbot
+    chatTitle:'💬 Fitness Time',chatWelcome:'Hello! I am the Fitness Time assistant. Choose a question below:',
+    q1:'💰 Pricing',q2:'🕐 Schedule',q3:'📍 Location',q4:'📞 Contact',q5:'🏋️ Programs',q6:'🔧 Services',
+    a1:'Pricing:\n• Iron session: 35 EGP\n• Iron+Cardio session: 50 EGP\n• Spa session: 250 EGP\n• Monthly (no spa): 300 EGP\n• Monthly (with spa): 450 EGP\n• 2 Months (no spa): 550 EGP\n• 2 Months (with spa): 750 EGP\n• 3 Months (no spa): 800 EGP\n• 3 Months (with spa): 1100 EGP\n• 4 Months: 1100 EGP\n• 6 Months: 1800 EGP\n• Yearly: 2000 EGP',
+    a2:'Schedule:\n👩 Women:\n• Sat/Mon/Wed: 3:30 PM - 8:00 PM\n• Sun/Tue/Thu: 9:00 PM - 11:30 PM\n• Friday off\n\n💪 Men:\n• Daily: 8:00 PM - 3:00 AM\n• Friday: 2:00 PM - 3:00 AM',
+    a3:'📍 Address:\nMenouf - Al-Geish St.\nCity Stars Mall - 4th Floor',
+    a4:'📞 Contact:\n• 01224262481\n• 01032415327\n• WhatsApp: 01224262481',
+    a5:'🏋️ Programs:\n• Bulking (3-6 months)\n• Cutting (2-4 months)\n• Weight Loss (2 months+)\n• Fitness (monthly)\n• Women (monthly)\n• Zumba & Aerobics (monthly)\n\nContact us on WhatsApp for details.',
+    a6:'🔧 Services:\n• Health Club (Jacuzzi-Sauna-Steam-Massage)\n• Weights & Free Weights\n• Cardio (Treadmill-Bike-Multi)\n• Dance & Fitness (Oriental-Zumba-Aerobics)\n• Personal & Group Training\n• Nutrition Consultancy',
+    chatReset:'🔄 Ask another question',
   }
 };
 
@@ -259,3 +279,50 @@ function displayReviews() {
 }
 
 document.addEventListener('DOMContentLoaded', displayReviews);
+
+// Chatbot
+function toggleChat() {
+  document.getElementById('chatWindow').classList.toggle('open');
+}
+
+function chatAnswer(topic) {
+  const d = langData[currentLang];
+  const body = document.getElementById('chatBody');
+  const qs = document.getElementById('chatQs');
+  qs.style.display = 'none';
+  const userMsg = document.createElement('div');
+  userMsg.className = 'chat-msg user';
+  userMsg.textContent = d['q' + ({pricing:1,schedule:2,location:3,contact:4,programs:5,services:6}[topic])];
+  body.appendChild(userMsg);
+  const botMsg = document.createElement('div');
+  botMsg.className = 'chat-msg bot';
+  botMsg.textContent = d['a' + ({pricing:1,schedule:2,location:3,contact:4,programs:5,services:6}[topic])];
+  body.appendChild(botMsg);
+  const resetBtn = document.createElement('button');
+  resetBtn.className = 'chat-back';
+  resetBtn.textContent = d.chatReset;
+  resetBtn.onclick = resetChat;
+  body.appendChild(resetBtn);
+  body.scrollTop = body.scrollHeight;
+}
+
+function resetChat() {
+  const d = langData[currentLang];
+  const body = document.getElementById('chatBody');
+  const qs = document.getElementById('chatQs');
+  body.innerHTML = '<div class="chat-msg bot">' + d.chatWelcome + '</div>';
+  qs.style.display = 'flex';
+}
+
+// Apply chatbot translations on lang change
+const origApplyLang = applyLang;
+applyLang = function() {
+  origApplyLang();
+  const d = langData[currentLang];
+  const welcome = document.querySelector('#chatBody .chat-msg.bot');
+  if (welcome && !welcome.querySelector('button')) welcome.textContent = d.chatWelcome;
+  const btns = document.querySelectorAll('#chatQs button');
+  btns.forEach(b => { const k = b.dataset.i18n; if (d[k]) b.textContent = d[k]; });
+  const backBtns = document.querySelectorAll('.chat-back');
+  backBtns.forEach(b => b.textContent = d.chatReset);
+};

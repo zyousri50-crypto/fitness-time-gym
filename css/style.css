@@ -131,6 +131,23 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:50px 20p
 .ft-social a:hover{border-color:var(--gold);color:var(--gold)}
 .ft-b{text-align:center;padding:18px 0;border-top:1px solid var(--border);color:var(--text4);font-size:.82em}
 
+/* ===== CHATBOT ===== */
+.chat-btn{position:fixed;bottom:90px;right:25px;z-index:999;width:55px;height:55px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(212,175,55,.4);cursor:pointer;transition:.3s;border:none}
+.chat-btn:hover{transform:scale(1.1)}
+.chat-btn svg{width:26px;height:26px}
+.chat-window{position:fixed;bottom:155px;right:25px;z-index:1000;width:340px;max-height:460px;background:var(--bg2);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.5);display:none;flex-direction:column}
+.chat-window.open{display:flex}
+.chat-header{background:var(--gold);color:#000;padding:14px 18px;font-weight:700;font-size:.95em;display:flex;justify-content:space-between;align-items:center}
+.chat-header button{background:none;border:none;color:#000;font-size:1.2em;cursor:pointer;padding:0;font-family:inherit}
+.chat-body{flex:1;padding:14px;overflow-y:auto;max-height:300px;min-height:200px}
+.chat-msg{margin-bottom:10px;padding:10px 14px;border-radius:12px;font-size:.85em;line-height:1.6;animation:fadeIn .3s;white-space:pre-line}
+.chat-msg.bot{background:var(--bg4);color:var(--text);border-bottom-right-radius:4px}
+.chat-msg.user{background:var(--gold);color:#000;border-bottom-left-radius:4px;margin-left:auto;max-width:80%;text-align:left}
+.chat-qs{padding:10px 14px;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:6px}
+.chat-qs button{background:var(--bg4);border:1px solid var(--border);color:var(--text2);padding:7px 12px;border-radius:20px;font-size:.75em;cursor:pointer;font-family:inherit;transition:.3s;font-weight:600}
+.chat-qs button:hover{background:var(--gold);color:#000;border-color:var(--gold)}
+.chat-back{display:block;background:none;border:none;color:var(--gold);cursor:pointer;font-size:.8em;font-weight:600;padding:8px 0;font-family:inherit;margin-top:4px}
+
 /* ===== WHATSAPP FLOAT ===== */
 .whatsapp-float{position:fixed;bottom:25px;right:25px;z-index:999;width:55px;height:55px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:.3s;animation:pulse 2s infinite}
 .whatsapp-float:hover{transform:scale(1.1);box-shadow:0 6px 30px rgba(37,211,102,.5)}
