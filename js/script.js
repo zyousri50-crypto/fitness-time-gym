@@ -22,9 +22,9 @@ const langData = {
     // Nav
     navHome:'الرئيسية',navAbout:'عن الجيم',navServices:'الخدمات',navPricing:'الأسعار',navTrainers:'الكباتن',navSchedule:'المواعيد',navPrograms:'البرامج',navGallery:'معرض الصور',navContact:'اتصل بنا',navLang:'English',navCta:'احجز جلسة',
     // Footer
-    footerAbout:'عن الجيم',footerAboutT:'Fitness Time Gym صالتك الرياضية الأولى في منوف منذ 2018.',footerFB:'تابعنا على فيسبوك',footerLinks:'روابط سريعة',footerContact:'اتصل بنا',footerContactT:'تواصل معنا عبر:',footerAddr:'منوف - شارع الجيش - مول ستي استارز',footerHours:'8 م - 3 ص',footerCopy:'جميع الحقوق محفوظة',
+    footerAbout:'عن الجيم',footerAboutT:'Fitness Time Gym صالتك الرياضية الأولى في منوف منذ 2018.',footerFB:'تابعنا على فيسبوك',footerLinks:'روابط سريعة',footerContact:'اتصل بنا',footerContactT:'تواصل معنا عبر:',footerAddr:'منوف - شارع الجيش - مول ستي استارز',footerHours:'8 م - 2 ص',footerCopy:'جميع الحقوق محفوظة',
     // Top bar
-    topAddr:'منوف - مول ستي استارز',topHours:'8 م - 3 ص',
+    topAddr:'منوف - مول ستي استارز',topHours:'8 م - 2 ص',
     // Home
     heroSub:'منوف',heroTag:'قوتك تبدأ من هنا 💪',st1:'افتتاح الجيم',st2:'عميل',st3:'كباتن محترفين',st4:'جهاز حديث',heroCta1:'احجز جلسة',heroCta2:'اعرف أكثر',
     qsT:'خدماتنا',qs1:'الحديد',qs2:'الكارديو',qs3:'النادي الصحي',qs4:'الرقص واللياقة',qs5:'تدريب شخصي',qs6:'مساج',
@@ -82,7 +82,7 @@ const langData = {
     galTitle:'معرض الصور',galSub:'صور الجيم والأقسام',galTab1:'الجيم',galTab2:'النادي الصحي',
     // Contact
     conTitle:'اتصل بنا',conSub:'نحن في خدمتك دائماً',
-    conPhone:'الهاتف',conAddr:'العنوان',conAddrD:'منوف - شارع الجيش\nمول ستي استارز - الدور الرابع',conHours:'مواعيد العمل',conHoursD:'يومياً 8 م - 3 ص\nالجمعة 2 م - 3 ص',conWhatsapp:'واتساب',
+    conPhone:'الهاتف',conAddr:'العنوان',conAddrD:'منوف - شارع الجيش\nمول ستي استارز - الدور الرابع',conHours:'مواعيد العمل',conHoursD:'يومياً 8 م - 2 ص\nالجمعة 2 م - 2 ص',conWhatsapp:'واتساب',
     conFormName:'الاسم',conFormPhone:'رقم الهاتف',conFormSubject:'الموضوع',conFormMsg:'الرسالة',conFormBtn:'إرسال الرسالة',
     conOpt1:'استفسار عن الأسعار',conOpt2:'حجز جلسة',conOpt3:'استفسار عن الاشتراكات',conOpt4:'شكوى أو اقتراح',
     // Chatbot
@@ -98,8 +98,8 @@ const langData = {
   },
   en: {
     navHome:'Home',navAbout:'About',navServices:'Services',navPricing:'Pricing',navTrainers:'Coaches',navSchedule:'Schedule',navPrograms:'Programs',navGallery:'Gallery',navContact:'Contact',navLang:'عربي',navCta:'Book Now',
-    footerAbout:'About',footerAboutT:'Fitness Time Gym is your #1 fitness destination in Menouf since 2018.',footerFB:'Follow us on Facebook',footerLinks:'Quick Links',footerContact:'Contact',footerContactT:'Get in touch:',footerAddr:'Menouf - Al-Geish St. - City Stars Mall',footerHours:'8 PM - 3 AM',footerCopy:'All rights reserved',
-    topAddr:'Menouf - City Stars Mall',topHours:'8 PM - 3 AM',
+    footerAbout:'About',footerAboutT:'Fitness Time Gym is your #1 fitness destination in Menouf since 2018.',footerFB:'Follow us on Facebook',footerLinks:'Quick Links',footerContact:'Contact',footerContactT:'Get in touch:',footerAddr:'Menouf - Al-Geish St. - City Stars Mall',footerHours:'8 PM - 2 AM',footerCopy:'All rights reserved',
+    topAddr:'Menouf - City Stars Mall',topHours:'8 PM - 2 AM',
     heroSub:'Menouf',heroTag:'Your strength starts here 💪',st1:'Opened',st2:'Clients',st3:'Pro Coaches',st4:'Modern Machines',heroCta1:'Book Now',heroCta2:'Learn More',
     qsT:'Our Services',qs1:'Weights',qs2:'Cardio',qs3:'Health Club',qs4:'Dance & Fitness',qs5:'Personal Training',qs6:'Massage',
     apT:'Fitness Time Gym - Menouf',ap1:'We opened in 2018 and have been providing the best fitness services in Menouf. Latest equipment, health club, and a great atmosphere for men and women.',ap2:'We offer clean and comfortable facilities with the latest imported equipment and a professional training team.',apBtn:'Read More',
@@ -148,7 +148,7 @@ const langData = {
     progCta:'Book Now',
     galTitle:'Gallery',galSub:'Gym photos',galTab1:'Gym',galTab2:'Health Club',
     conTitle:'Contact Us',conSub:'We are always at your service',
-    conPhone:'Phone',conAddr:'Address',conAddrD:'Menouf - Al-Geish St.\nCity Stars Mall - 4th Floor',conHours:'Working Hours',conHoursD:'Daily 8 PM - 3 AM\nFriday 2 PM - 3 AM',conWhatsapp:'WhatsApp',
+    conPhone:'Phone',conAddr:'Address',conAddrD:'Menouf - Al-Geish St.\nCity Stars Mall - 4th Floor',conHours:'Working Hours',conHoursD:'Daily 8 PM - 2 AM\nFriday 2 PM - 2 AM',conWhatsapp:'WhatsApp',
     conFormName:'Name',conFormPhone:'Phone',conFormSubject:'Subject',conFormMsg:'Message',conFormBtn:'Send Message',
     conOpt1:'Pricing inquiry',conOpt2:'Book a session',conOpt3:'Membership inquiry',conOpt4:'Complaint or suggestion',
     // Chatbot
