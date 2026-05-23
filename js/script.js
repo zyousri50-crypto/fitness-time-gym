@@ -37,7 +37,7 @@ const langData = {
     c1n:'كابتن خالد',c1role:'مدرب رئيسي',c1spec1:'تضخيم',c1spec2:'بناء أجسام',c1spec3:'قوة',c1exp:'خبرة 3 سنين',
     c2n:'كابتن أميرة',c2role:'مدربة سيدات',c2spec1:'برامج سيدات',c2spec2:'تنشيف',c2spec3:'رقص',c2exp:'خبرة 10 سنين',
     c3n:'كابتن شهد',c3role:'مدربة سيدات',c3spec1:'لياقة',c3spec2:'زومبا',c3spec3:'أيروبكس',c3exp:'خبرة 3 سنين',
-    testT:'تقييمات العملاء',test1:'"أفضل جيم في منوف. أجهزة حديثة ونظافة تامة والكباتن محترفين جداً."',test1a:'— أحمد',
+    testT:'تقييمات العملاء',addRevT:'أضف تقييمك',revNameP:'اسمك',revTextP:'اكتب تقييمك',revBtn:'إرسال التقييم',test1:'"أفضل جيم في منوف. أجهزة حديثة ونظافة تامة والكباتن محترفين جداً."',test1a:'— أحمد',
     test2:'"النادي الصحي تحفة. الجاكوزي والساونا بعد التمرين حاجة تانية."',test2a:'— مريم',
     test3:'"دخلت في تحدي التضخيم مع كابتن خالد والنتيجة كانت مذهلة في 3 شهور."',test3a:'— عمر',
     test4:'"جيم نظيف وجميل جدا والمدربين متعاونين. أنصح الكل يجرب."',test4a:'— سارة',
@@ -96,7 +96,7 @@ const langData = {
     c1n:'Captain Khaled',c1role:'Head Coach',c1spec1:'Bulking',c1spec2:'Bodybuilding',c1spec3:'Strength',c1exp:'3 years exp.',
     c2n:'Captain Amira',c2role:"Women's Coach",c2spec1:"Women's Programs",c2spec2:'Cutting',c2spec3:'Dance',c2exp:'10 years exp.',
     c3n:'Captain Shahd',c3role:"Women's Coach",c3spec1:'Fitness',c3spec2:'Zumba',c3spec3:'Aerobics',c3exp:'3 years exp.',
-    testT:'Client Reviews',test1:'"Best gym in Menouf. Modern equipment, clean, and professional coaches."',test1a:'— Ahmed',
+    testT:'Client Reviews',addRevT:'Add Your Review',revNameP:'Your name',revTextP:'Write your review',revBtn:'Submit Review',test1:'"Best gym in Menouf. Modern equipment, clean, and professional coaches."',test1a:'— Ahmed',
     test2:'"The health club is amazing. Jacuzzi and sauna after workout are incredible."',test2a:'— Mariam',
     test3:'"I joined Khaled bulking challenge and got amazing results in 3 months."',test3a:'— Omar',
     test4:'"Very clean and beautiful gym with helpful coaches. I recommend everyone try it."',test4a:'— Sarah',
@@ -133,6 +133,10 @@ function applyLang() {
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.dataset.i18n;
     if (d[key]) el.innerHTML = d[key];
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.dataset.i18nPlaceholder;
+    if (d[key]) el.placeholder = d[key];
   });
   const langBtn = document.getElementById('langBtn');
   if (langBtn) langBtn.textContent = d.navLang;
@@ -185,3 +189,46 @@ function switchTab(group, idx) {
   tabs.forEach((tb, i) => tb.classList.toggle('active', i === idx));
   contents.forEach((c, i) => c.classList.toggle('active', i === idx));
 }
+
+// Star rating
+document.addEventListener('click', e => {
+  if (e.target.closest('.star-rating')) {
+    const stars = e.target.closest('.star-rating').querySelectorAll('.star');
+    const val = parseInt(e.target.dataset.val);
+    stars.forEach(s => s.classList.toggle('active', parseInt(s.dataset.val) <= val));
+  }
+});
+
+// Submit review
+function submitReview() {
+  const name = document.getElementById('revName').value.trim();
+  const text = document.getElementById('revText').value.trim();
+  const activeStars = document.querySelector('.star-rating')?.querySelectorAll('.star.active');
+  if (!name || !text || !activeStars?.length) { alert('اكتب اسمك وتقييمك واختار عدد النجوم'); return; }
+  const rating = activeStars.length;
+  const starsStr = '★'.repeat(rating) + '☆'.repeat(5 - rating);
+  const reviews = JSON.parse(localStorage.getItem('ft-reviews') || '[]');
+  reviews.unshift({ name, text, rating: starsStr, date: new Date().toLocaleDateString() });
+  localStorage.setItem('ft-reviews', JSON.stringify(reviews));
+  document.getElementById('revName').value = '';
+  document.getElementById('revText').value = '';
+  document.querySelectorAll('.star-rating .star').forEach(s => s.classList.remove('active'));
+  displayReviews();
+}
+
+function displayReviews() {
+  const grid = document.querySelector('.test-grid');
+  if (!grid) return;
+  const reviews = JSON.parse(localStorage.getItem('ft-reviews') || '[]');
+  grid.querySelectorAll('.user-review').forEach(el => el.remove());
+  if (!reviews.length) return;
+  const d = langData[currentLang];
+  reviews.forEach(r => {
+    const div = document.createElement('div');
+    div.className = 'test-c user-review';
+    div.innerHTML = '<div class="stars">' + r.rating + '</div><p>"' + r.text + '"</p><div class="author">— ' + r.name + '</div><div class="date" style="font-size:.75em;color:var(--text4)">' + (currentLang === 'ar' ? 'أضيف في ' : 'Added on ') + r.date + '</div>';
+    grid.appendChild(div);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', displayReviews);
