@@ -35,7 +35,7 @@ const langData = {
     statsT:'إحصائياتنا',st5:'سنين خبرة',st6:'نظافة',
     // Services
     svTitle:'خدمات الجيم',svSub:'كل ما تحتاجه في مكان واحد',sv1:'النادي الصحي',sv2:'الحديد',sv3:'الكارديو',sv4:'الرقص واللياقة',sv5:'التدريب الشخصي',
-    s1t:'جاكوزي',s1d:'جاكوزي فاخر للاسترخاء بعد التمرين',s2t:'ساونا',s2d:'ساونا جافة لتنقية الجسم',s3t:'بخار',s3d:'غرفة بخار لتنظيف البشرة',s4t:'مساج',s4d:'جلسات مساج احترافية',
+    s1t:'جاكوزي',s1d:'جاكوزي فاخر للاسترخاء بعد التمرين',s2t:'ساونا',s2d:'ساونا جافة لتنقية الجسم',s4t:'مساج',s4d:'جلسات مساج احترافية',
     i1t:'الأوزان الحرة',i1d:'دامبلز وبارات بجميع الأوزان',i2t:'الأجهزة الحديثة',i2d:'أحدث أجهزة التضخيم والتنشيف',i3t:'قاعة التدريب',i3d:'مساحة مجهزة بأحدث المعدات',
     c1t:'مشاية كهربائية',c1d:'Treadmill بأحدث المواصفات',c2t:'عجلة رياضية',c2d:'Spin bike لحرق الدهون',c3t:'أجهزة متعددة',c3d:'Elliptical - Rowing - Climbing',
     d1t:'رقص شرقي',d1d:'تدريب رقص شرقي للسيدات',d1tag:'للسيدات فقط',d2t:'زومبا',d2d:'رقص إيقاعي لحرق السعرات',d2tag:'للسيدات فقط',d3t:'أيروبكس',d3d:'تمارين أيروبكس للياقة',d3tag:'للسيدات فقط',
@@ -106,7 +106,7 @@ const langData = {
     vm1:'Our Vision',vm1d:'To be the best gym in Menouf and provide a complete sports environment for everyone.',vm2:'Our Mission',vm2d:'Providing professional sports services with the highest quality and cleanliness standards.',
     statsT:'Statistics',st5:'Years Experience',st6:'Cleanliness',
     svTitle:'Our Services',svSub:'Everything you need in one place',sv1:'Health Club',sv2:'Weights',sv3:'Cardio',sv4:'Dance & Fitness',sv5:'Personal Training',
-    s1t:'Jacuzzi',s1d:'Luxury jacuzzi for post-workout relaxation',s2t:'Sauna',s2d:'Dry sauna for detox & relaxation',s3t:'Steam Room',s3d:'Steam room for skin cleansing',s4t:'Massage',s4d:'Professional massage sessions',
+    s1t:'Jacuzzi',s1d:'Luxury jacuzzi for post-workout relaxation',s2t:'Sauna',s2d:'Dry sauna for detox & relaxation',s4t:'Massage',s4d:'Professional massage sessions',
     i1t:'Free Weights',i1d:'Dumbbells & bars in all weights',i2t:'Modern Machines',i2d:'Latest bulking & cutting machines',i3t:'Training Hall',i3d:'Fully equipped training area',
     c1t:'Treadmill',c1d:'Latest treadmills',c2t:'Spin Bike',c2d:'Spin bike for fat burning',c3t:'Multi Machines',c3d:'Elliptical - Rowing - Climbing',
     d1t:'Oriental Dance',d1d:'Oriental dance training for women',d1tag:'Women only',d2t:'Zumba',d2d:'Rhythmic dance for calories',d2tag:'Women only',d3t:'Aerobics',d3d:'Aerobics for fitness',d3tag:'Women only',
